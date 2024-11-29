@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio with Animated Background</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Background Animation */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, #1a1a2e, #16213e, #0f3460, #1a1a2e);
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0% {
+        opacity: 0.3;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0.3;
+      }
+    }
+
+    header {
+      text-align: center;
+      padding: 50px;
+      color: white;
+    }
+
+    .title {
+      font-size: 3.5em;
+      font-weight: bold;
+      animation: slide-in 1.5s ease-out;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      font-size: 1.2em;
+      animation: fade-in 2s ease-in-out;
+    }
+
+    @keyframes slide-in {
+      0% {
+        transform: translateY(-100px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 1.2em;
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    section {
+      padding: 50px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    /* Projects Section */
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .project-card {
+      background: rgba(0, 0, 0, 0.7); /* Darker background */
+      color: #fff; /* White text for contrast */
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      width: 300px;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.5em;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 50px;
+      margin-top: 40px;
+      color: white;
+    }
+
+    .contact form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact input,
+    .contact textarea,
+    .contact button {
+      padding: 15px;
+      font-size: 1.2em;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .contact input,
+    .contact textarea {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    .contact button {
+      background: #6c63ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact button:hover {
+      background: #554fcf;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background Animation -->
+  <div class="background">
+    <!-- Add 100 stars -->
+    <script>
+      for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.top = Math.random() * 100 + 'vh';
+        star.style.left = Math.random() * 100 + 'vw';
+        star.style.animationDuration = Math.random() * 2 + 1 + 's';
+        document.body.querySelector('.background').appendChild(star);
+      }
+    </script>
+  </div>
+
+  <!-- Header Section -->
+  <header>
+    <h1 class="title">Hello, I'm Gowri Krishna</h1>
+    <p class="subtitle">A Web Developer with a Passion for Creativity</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a web developer who loves creating dynamic and visually appealing websites. I specialize in animations,
+      responsive design, and interactive user experiences.</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>A modern portfolio showcasing animation and interactivity.</p>
+      </div>
+      <div class="project-card">
+        <h3>Scientific Calculator using React</h3>
+        <p>A dynamic app designed to perform various scientific calculations with ease and accuracy.</p>
+      </div>
+      <div class="project-card">
+        <h3>College Management System using React</h3>
+        <p>A comprehensive application to manage academic activities, student records, and administrative tasks efficiently.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <form action="https://formspree.io/f/example" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Gowri Krishna. All rights reserved. | <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+  </footer>
+</body>
+
+</html>
